@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>ViewMyAuctions</title>
+	</head>
+	
+	<body>
+		<h1> Auctions you are selling <h1>
+		<table width="70%"  border="0" cellpadding="1" cellspacing="2" >
+			<tr>
+				<td><b>Id</b></td>
+				<td><b>ItemId</b></td>
+				<td><b>MinimumPrice</b></td>
+				<td><b>SellingPrice</b></td>
+				<td><b>ExpirationDate</b></td>
+  			</tr>
+ 			<#list auctions as auction>
+  			<tr>
+    			<td>${auction[0]}</td>
+    			<td>${auction[1]}</td>
+    			<td>${auction[2]}</td>
+    			<td>${auction[3]}</td>
+    			<td>${auction[4]}</td>
+  			</tr>
+ 			</#list></table>
+
+		<p><p><a href="ShowHome">Home</a>
+	</body>
+</html>

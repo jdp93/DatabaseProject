@@ -1,0 +1,41 @@
+<html>
+<head><title>Browse Category</title><head>
+<body>
+<h1>Browse Category</h1>
+
+<form method=post action="BrowseCategoryPageTwo">
+<select name="category">
+	<#list categories as category>
+    <option value="${category[0]}">${category[0]}</option>
+    </#list>
+</select>
+
+
+<table value="Items" width="70%"  border="0" cellpadding="1" cellspacing="2" >
+  <tr>
+    <td><b>Id</b></td>
+    <td><b>Name</b></td>
+    <td><b>Description</b></td>
+    <td><b>Category</b></td>
+    <td><b>Owner</b></td>
+    <td><b>AuctionId</b></td>
+  </tr>
+ <#list items as item>
+  <tr>
+    <td>${item[0]}</td>
+    <td>${item[1]}</td>
+    <td>${item[2]}</td>
+    <td>${item[3]}</td>
+    <td>${item[4]}</td>
+    <td>${item[5]}</td>
+  </tr>
+ </#list></table>
+
+<input type=submit value="Submit"> 
+
+</form>
+
+<p><p><a href="ShowHome">Home</a>
+
+</body>
+</html>

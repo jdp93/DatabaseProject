@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<display-name>DawgTrades</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.Register</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/Register</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ViewProfile</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.ViewProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewProfile</servlet-name>
+		<url-pattern>/ViewProfile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BrowseCategory</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.BrowseCategory</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BrowseCategory</servlet-name>
+		<url-pattern>/BrowseCategory</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BrowseCategoryPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.BrowseCategoryPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BrowseCategoryPageTwo</servlet-name>
+		<url-pattern>/BrowseCategoryPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TerminateAccount</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.TerminateAccount</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TerminateAccount</servlet-name>
+		<url-pattern>/TerminateAccount</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TerminateAccountPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.TerminateAccountPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TerminateAccountPageTwo</servlet-name>
+		<url-pattern>/TerminateAccountPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteUser</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.DeleteUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteUser</servlet-name>
+		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteUserPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.DeleteUserPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteUserPageTwo</servlet-name>
+		<url-pattern>/DeleteUserPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CreateCategory</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.CreateCategory</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateCategory</servlet-name>
+		<url-pattern>/CreateCategory</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CreateCategoryPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.CreateCategoryPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateCategoryPageTwo</servlet-name>
+		<url-pattern>/CreateCategoryPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AuctionItem</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.AuctionItem</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuctionItem</servlet-name>
+		<url-pattern>/AuctionItem</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AuctionItemPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.AuctionItemPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuctionItemPageTwo</servlet-name>
+		<url-pattern>/AuctionItemPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BidOnItem</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.BidOnItem</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BidOnItem</servlet-name>
+		<url-pattern>/BidOnItem</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BidOnItemPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.BidOnItemPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BidOnItemPageTwo</servlet-name>
+		<url-pattern>/BidOnItemPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateCategory</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.UpdateCategory</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateCategory</servlet-name>
+		<url-pattern>/UpdateCategory</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateCategoryPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.UpdateCategoryPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateCategoryPageTwo</servlet-name>
+		<url-pattern>/UpdateCategoryPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteCategory</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.DeleteCategory</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteCategory</servlet-name>
+		<url-pattern>/DeleteCategory</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteCategoryPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.DeleteCategoryPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteCategoryPageTwo</servlet-name>
+		<url-pattern>/DeleteCategoryPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteItem</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.DeleteItem</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteItem</servlet-name>
+		<url-pattern>/DeleteItem</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteItemPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.DeleteItemPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteItemPageTwo</servlet-name>
+		<url-pattern>/DeleteItemPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>FindItems</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.FindItems</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindItems</servlet-name>
+		<url-pattern>/FindItems</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindItemsPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.FindItemsPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindItemsPageTwo</servlet-name>
+		<url-pattern>/FindItemsPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SetMembership</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.SetMembership</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetMembership</servlet-name>
+		<url-pattern>/SetMembership</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SetMembershipPageTwo</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.SetMembershipPageTwo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetMembershipPageTwo</servlet-name>
+		<url-pattern>/SetMembershipPageTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+			<servlet-name>Logout</servlet-name>
+			<servlet-class>edu.uga.dawgtrades.boundary.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+			<servlet-name>ShowHome</servlet-name>
+			<servlet-class>edu.uga.dawgtrades.boundary.ShowHome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowHome</servlet-name>
+		<url-pattern>/ShowHome</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ViewMyAuctions</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.ViewMyAuctions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewMyAuctions</servlet-name>
+		<url-pattern>/ViewMyAuctions</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TrackBids</servlet-name>
+		<servlet-class>edu.uga.dawgtrades.boundary.TrackBids</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TrackBids</servlet-name>
+		<url-pattern>/TrackBids</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
