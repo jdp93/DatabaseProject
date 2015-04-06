@@ -1,0 +1,40 @@
+
+--Schema for DawgTrades
+
+CREATE SCHEMA IF NOT EXISTS `DwagTrades` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `DawgTrades` ;
+
+--Table definitin for User identification
+CREATE TABLE IF NOT EXISTS `DwagTrades`.`User` (
+ `UserID` INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
+ `UserName` VARCHAR(200) NULL UNIQUE,
+ `Password` VARCHAR(100) NULL,
+ `Email` VARCHAR(200) NULL UNIQUE,
+ `DisplayName` VARCHAR(200) NULL,
+ 'CanText' BOOLEAN  NULL,
+ 'IsAdmin' BOOLEAN  NULL,
+PRIMARY KEY (`UserID`))
+ENGINE = InnoDB;
+
+-- Table definition for 'Category'
+
+CREATE TABLE IF NOT EXISTS `DwagTrades`.`Category` (
+  CategoryId  INT   UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
+  ParentId  INT   UNSIGNED NULL UNIQUE,
+  Name    VARCHAR(200)  NULL UNIQUE,
+  PRIMARY KEY (`CategoryId`) 
+) ENGINE=InnoDB;
+
+-- Table definition for 'Item'
+
+CREATE TABLE IF NOT EXISTS `DwagTrades`.`Item` (
+  ItemId  INT   UNSIGNED  UNIQUE AUTO_INCREMENT,
+  OwnerId   INT   UNSIGNED UNIQUE NOT NULL,
+  CategoryId  INT   UNSIGNED UNIQUE NOT NULL,
+  Name            VARCHAR(255)  NOT NULL,
+  Description      VARCHAR(500),
+  FOREIGN KEY     (OwnerId) REFERENCES User(UserID) ON DELETE CASCADE,
+  FOREIGN KEY     (CategoryId) REFERENCES Category(CategoryId) ON DELETE CASCADE,
+  PRIMARY KEY (`ItemId`),
+) ENGINE=InnoDB;
+
