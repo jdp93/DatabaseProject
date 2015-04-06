@@ -38,3 +38,11 @@ CREATE TABLE IF NOT EXISTS `DwagTrades`.`Item` (
   PRIMARY KEY (`ItemId`),
 ) ENGINE=InnoDB;
 
+
+
+
+
+
+
+
+
