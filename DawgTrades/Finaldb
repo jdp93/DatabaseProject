@@ -47,14 +47,14 @@ CREATE TABLE IF NOT EXISTS `DawgTrades`.`Item` (
 --Table definition for table 'Prime'
 CREATE TABLE IF NOT EXISTS `DawgTrades`.`Prime` (
   `PrimeID` INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
+   `AttributeId`  INT   UNSIGNED NOT NULL,
   `StartDate` DATE NULL,
   `EndDate` DATE NULL,
-   `PrimeUser` INT UNSIGNED NOT NULL,
   `Status` ENUM('PrimeMember','Without Prime','Free Trial') NULL DEFAULT 'without prime',
   PRIMARY KEY (`PrimeID`),
-  CONSTRAINT `PrimeUser`
-    FOREIGN KEY (`PrimeUser`)
-    REFERENCES `DwagTrades`.`User` (`UserID`)
+  CONSTRAINT `AttributeId`
+    FOREIGN KEY (`AttributeId`)
+    REFERENCES `DwagTrades`.`Attribute` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
