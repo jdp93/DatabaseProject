@@ -5,20 +5,26 @@ CREATE SCHEMA IF NOT EXISTS `DwagTrades` DEFAULT CHARACTER SET utf8 COLLATE utf8
 USE `DawgTrades` ;
 
 --Table definitin for User identification
-CREATE TABLE IF NOT EXISTS `DwagTrades`.`User` (
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`User` (
  `UserID` INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
  `UserName` VARCHAR(200) NULL UNIQUE,
  `Password` VARCHAR(100) NULL,
  `Email` VARCHAR(200) NULL UNIQUE,
- `DisplayName` VARCHAR(200) NULL,
  'CanText' BOOLEAN  NULL,
  'IsAdmin' BOOLEAN  NULL,
 PRIMARY KEY (`UserID`))
 ENGINE = InnoDB;
 
+CREATE UNIQUE INDEX `UserID_UNIQUE` ON `DawgTrades`.`User` (`UserID` ASC);
+
+CREATE UNIQUE INDEX `Email_UNIQUE` ON `DawgTrades`.`User` (`Email` ASC);
+
+CREATE UNIQUE INDEX `UserName_UNIQUE` ON `DawgTrades`.`User` (`UserName` ASC);
+
+
 -- Table definition for 'Category'
 
-CREATE TABLE IF NOT EXISTS `DwagTrades`.`Category` (
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`Category` (
   CategoryId  INT   UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
   ParentId  INT   UNSIGNED NULL UNIQUE,
   Name    VARCHAR(200)  NULL UNIQUE,
@@ -27,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `DwagTrades`.`Category` (
 
 -- Table definition for 'Item'
 
-CREATE TABLE IF NOT EXISTS `DwagTrades`.`Item` (
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`Item` (
   ItemId  INT   UNSIGNED  UNIQUE AUTO_INCREMENT,
   OwnerId   INT   UNSIGNED UNIQUE NOT NULL,
   CategoryId  INT   UNSIGNED UNIQUE NOT NULL,
@@ -38,11 +44,64 @@ CREATE TABLE IF NOT EXISTS `DwagTrades`.`Item` (
   PRIMARY KEY (`ItemId`),
 ) ENGINE=InnoDB;
 
+--Table definition for table 'Prime'
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`Prime` (
+  `PrimeID` INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
+  `StartDate` DATE NULL,
+  `EndDate` DATE NULL,
+   `PrimeUser` INT UNSIGNED NOT NULL,
+  `Status` ENUM('PrimeMember','Without Prime','Free Trial') NULL DEFAULT 'without prime',
+  PRIMARY KEY (`PrimeID`),
+  CONSTRAINT `PrimeUser`
+    FOREIGN KEY (`PrimeUser`)
+    REFERENCES `DwagTrades`.`User` (`UserID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
+--Table definition for table 'AttributeType'
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`AttributeType` (
+ `Id`  INT      UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `CategoryId`  INT           UNSIGNED NOT NULL,
+  `Name`     VARCHAR(200)  NOT NULL,
+  FOREIGN KEY  (CategoryId) REFERENCES Category(Id) ON DELETE CASCADE
+) ENGINE=InnoDB;
 
 
+--Table definition for table 'Attribute'
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`Attribute` (
+  `Id`   INT   UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `ItemId`    INT       UNSIGNED NOT NULL,
+  `AttributeTypeId` INT      UNSIGNED NOT NULL,
+  Value    VARCHAR(200)  NOT NULL,
+  FOREIGN KEY  (ItemId) REFERENCES Item(Id) ON DELETE CASCADE,
+  FOREIGN KEY   (AttributeTypeId) REFERENCES AttributeType(Id) ON DELETE CASCADE
+) ENGINE=InnoDB;
 
+--Table definition for table 'Cart'
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`Cart`(
+  `Id`        INT      UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `UserId`      INT      UNSIGNED NOT NULL,
+  `PrimeId`     INT        UNSIGNED NOT NULL,
+  `Expiration`   DATETIME    NOT NULL,
+  `Amount`          INT     UNSIGNED NOT NULL,
+  FOREIGN KEY     (UserId) REFERENCES RegisteredUser(Id) ON DELETE CASCADE,
+  FOREIGN KEY     (PrimeId) REFERENCES Auction(Id) ON DELETE CASCADE
+) ENGINE=InnoDB;
 
+-- Table `DawgTrades`.`Log`
+CREATE TABLE IF NOT EXISTS `DawgTrades`.`Log` (
+  `LogID` INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
+  `RemoteAddr` VARCHAR(200) NULL,
+  `RemoteHost` VARCHAR(200) NULL,
+  `RemotePort` VARCHAR(200) NULL,
+  `Path` VARCHAR(200) NULL,
+  `RequestType` VARCHAR(200) NULL,
+  `RequestTime` TIMESTAMP NULL,
+  PRIMARY KEY (`LogID`))
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `LogID_UNIQUE` ON `DawgTrades`.`Log` (`LogID` ASC);
 
 
